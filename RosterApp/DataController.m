@@ -62,7 +62,8 @@
     cell.cellLabel.text = myPerson.firstName;
     
     cell.cellImageView.image = myPerson.avatar;
-    
+//    cell.contentView.backgroundColor = myPerson.personColor;
+  cell.cellLabel.textColor = myPerson.personColor;
     return cell;
 }
 

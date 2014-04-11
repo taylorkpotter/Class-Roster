@@ -31,6 +31,8 @@
 		D789F22618F7453200AB40B5 /* twitterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D789F22418F7453200AB40B5 /* twitterLogo.png */; };
 		D789F22918F7498900AB40B5 /* ScrollTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D789F22818F7498900AB40B5 /* ScrollTopView.m */; };
 		D7A0CEEB18F64DC30039E62B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D7A0CEEA18F64DC30039E62B /* logo.png */; };
+		D7AD7FB118F77C34002F821A /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = D7AD7FB018F77C34002F821A /* camera.png */; };
+		D7AD7FB618F77E28002F821A /* anonymous_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D7AD7FB518F77E28002F821A /* anonymous_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		D789F22718F7498900AB40B5 /* ScrollTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTopView.h; sourceTree = "<group>"; };
 		D789F22818F7498900AB40B5 /* ScrollTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTopView.m; sourceTree = "<group>"; };
 		D7A0CEEA18F64DC30039E62B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		D7AD7FB018F77C34002F821A /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		D7AD7FB518F77E28002F821A /* anonymous_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anonymous_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +135,9 @@
 		009C674318F5DB970025F09A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D7AD7FB218F77C39002F821A /* images */,
 				D789F22718F7498900AB40B5 /* ScrollTopView.h */,
 				D789F22818F7498900AB40B5 /* ScrollTopView.m */,
-				D789F22318F7453200AB40B5 /* githubLogo.png */,
-				D789F22418F7453200AB40B5 /* twitterLogo.png */,
 				00B6790818F33652003B5A6D /* Main.storyboard */,
 				00AAEE8018F4AB9C001B5F34 /* PersonTableViewCell.h */,
 				00AAEE8118F4AB9C001B5F34 /* PersonTableViewCell.m */,
@@ -217,6 +220,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D7AD7FB218F77C39002F821A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D7AD7FB518F77E28002F821A /* anonymous_logo.png */,
+				D789F22318F7453200AB40B5 /* githubLogo.png */,
+				D789F22418F7453200AB40B5 /* twitterLogo.png */,
+				D7AD7FB018F77C34002F821A /* camera.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,8 +311,10 @@
 				00B6790118F33652003B5A6D /* InfoPlist.strings in Resources */,
 				00AAEDE418F45C3F001B5F34 /* People.plist in Resources */,
 				D7A0CEEB18F64DC30039E62B /* logo.png in Resources */,
+				D7AD7FB618F77E28002F821A /* anonymous_logo.png in Resources */,
 				D789F22618F7453200AB40B5 /* twitterLogo.png in Resources */,
 				00B6790A18F33652003B5A6D /* Main.storyboard in Resources */,
+				D7AD7FB118F77C34002F821A /* camera.png in Resources */,
 				D789F22518F7453200AB40B5 /* githubLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

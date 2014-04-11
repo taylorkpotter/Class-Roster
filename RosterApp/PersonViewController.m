@@ -57,6 +57,21 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  
+  self.bgView.backgroundColor = self.selectedPerson.personColor;
+  
+  CGFloat r, g, b, a;
+  
+  [self.selectedPerson.personColor getRed:&r green:&g blue:&b alpha:&a];
+  
+  [_r setValue:r animated:YES];
+  [_g setValue:g animated:YES];
+  [_r setValue:b animated:YES];
+}
+
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -65,6 +80,8 @@
   
     self.selectedPerson.github = _githubField.text;
     self.selectedPerson.twitter = _twitterField.text;
+  
+  
   
     [[DataController sharedData] save];
 }
@@ -98,14 +115,15 @@
 {
     
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    
+  ;
     imagePicker.delegate = self;
     
     imagePicker.allowsEditing = YES;
     
     if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Delete Photo"])
     {
-        //do this later
+        self.selectedPerson.avatar = [UIImage imageNamed:@"anonymous_logo.png"];
+      
     } else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Take Photo"])
     {
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -183,18 +201,32 @@
   [self.scrollView setContentOffset:CGPointMake(0, 0)animated:YES];
 }
 
+
+//allows user to change the background color of the page and have the changes persist
 -(IBAction)sliderValueChanged:(UISlider*)slider
 {
-  float r=[[NSString stringWithFormat:@"%.0f",_r.value] floatValue];
-  float g=[[NSString stringWithFormat:@"%.0f",_g.value]floatValue];
-  float b=[[NSString stringWithFormat:@"%.0f",_b.value]floatValue];
+  CGFloat r = _r.value;
+  CGFloat g = _g.value;
+  CGFloat b = _b.value;
   
-  UIColor *colorToSet=[UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1];
-  [_bgView setBackgroundColor:colorToSet];
-
+  self.selectedPerson.personColor = [UIColor colorWithRed:r green:g blue:b alpha:1];
+  NSLog(@"%@", self.selectedPerson.personColor);
+  [_bgView setBackgroundColor:self.selectedPerson.personColor];
   
 }
 
+//tap the photo and the background changes to a random color and the sliders move
+- (IBAction)randomColor:(id)sender {
+  
+  CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+  CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
+  CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+  self.selectedPerson.personColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+  [_bgView setBackgroundColor:self.selectedPerson.personColor];
+  _r.value = hue;
+  _g.value = saturation;
+  _b.value = brightness;
+}
 
 
 
