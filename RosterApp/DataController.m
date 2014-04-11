@@ -2,8 +2,8 @@
 //  DataController.m
 //  RosterApp
 //
-//  Created by Reed Sweeney on 4/9/14.
-//  Copyright (c) 2014 Reed Sweeney. All rights reserved.
+//  Created by Reed, Taylor and Dan on 4/9/14.
+//  Copyright (c) 2014. All rights reserved.
 //
 
 #import "DataController.h"
@@ -12,7 +12,7 @@
 
 @implementation DataController
 
-+(DataController *)sharedData {
++ (DataController *)sharedData {
     static dispatch_once_t pred;
     static DataController *shared = nil;
     
@@ -50,7 +50,7 @@
 - (PersonTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PersonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
+  
     Person *myPerson;
     
     if (indexPath.section == 0) {

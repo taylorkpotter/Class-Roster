@@ -11,6 +11,7 @@
 #import "PersonTableViewCell.h"
 #import "DataController.h"
 
+
 @interface ViewController () <UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -28,6 +29,7 @@
     
     self.tableView.dataSource = self.myDataController;
     self.tableView.delegate = self;
+  
     
 }
 
@@ -72,6 +74,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+
 
 
 

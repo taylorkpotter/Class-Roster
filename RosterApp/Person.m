@@ -10,10 +10,6 @@
 
 @implementation Person
 
-- (NSString *)fullName
-{
-    return [NSString stringWithFormat:@"%@ %@", _firstName, _lastName];
-}
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -22,7 +18,12 @@
     {
         self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
         self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
+        self.github = [aDecoder decodeObjectForKey:@"github"];
+        self.twitter = [aDecoder decodeObjectForKey:@"twitter"];
         self.avatar = [UIImage imageWithData: [aDecoder decodeObjectForKey:@"avatar"]];
+        self.personColor = [aDecoder decodeObjectForKey:@"personColor"];
+      
+
     }
     
     return self;
@@ -32,8 +33,13 @@
 {
     [aCoder encodeObject:self.firstName forKey:@"firstName"];
     [aCoder encodeObject:self.lastName forKey:@"lastName"];
+    [aCoder encodeObject:self.github forKey:@"github"];
+    [aCoder encodeObject:self.twitter forKey:@"twitter"];
     [aCoder encodeObject:UIImagePNGRepresentation(self.avatar) forKey:@"avatar"];
+    [aCoder encodeObject:self.personColor forKey:@"personColor"]; 
+
 }
+
 
 
 @end

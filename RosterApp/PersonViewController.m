@@ -10,12 +10,19 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Person.h"
 #import "DataController.h"
+#import "ScrollTopView.h"
 
-@interface PersonViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface PersonViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) UIActionSheet *myActionSheet;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *nameLabel;
+@property (weak, nonatomic) IBOutlet UITextField *githubField;
+@property (weak, nonatomic) IBOutlet UITextField *twitterField;
+@property (weak, nonatomic) IBOutlet ScrollTopView *bgView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *primaryView;
+
 
 @end
 
@@ -34,9 +41,20 @@
 {
     [super viewDidLoad];
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.selectedPerson.firstName, self.selectedPerson.lastName];
-    if (_selectedPerson.avatar) {
-        self.imageView.image = self.selectedPerson.avatar;
+    self.githubField.text = self.selectedPerson.github;
+    self.twitterField.text = self.selectedPerson.twitter;
+  
+    if (_selectedPerson.avatar)
+    {
+    self.imageView.image = self.selectedPerson.avatar;
     }
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.nameLabel.delegate = self;
+    self.githubField.delegate = self;
+    self.twitterField.delegate = self;
+
+    self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -44,7 +62,10 @@
     [super viewWillDisappear:animated];
     self.selectedPerson.firstName = [[_nameLabel.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] firstObject];
     self.selectedPerson.lastName = [[_nameLabel.text componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] lastObject];
-    
+  
+    self.selectedPerson.github = _githubField.text;
+    self.selectedPerson.twitter = _twitterField.text;
+  
     [[DataController sharedData] save];
 }
 
@@ -53,9 +74,8 @@
     [super didReceiveMemoryWarning];
 }
 
-
-
-- (IBAction)CameraButtonPressed:(id)sender {
+- (IBAction)CameraButtonPressed:(id)sender
+{
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
@@ -73,9 +93,6 @@
     NSLog(@"button pressed");
     
 }
-
-#pragma mark - UIActionSheet Delegate Methods
-
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -102,8 +119,6 @@
     }
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
-
-#pragma mark - UIImagePickerControllerDelegate Methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -142,6 +157,51 @@
         }
     }];
 }
+
+-(IBAction)sharePhoto:(id)sender
+{
+  UIActivityViewController *sharePhotoVC = [[UIActivityViewController alloc]initWithActivityItems:@[self.selectedPerson.avatar, [NSURL URLWithString:@"http://www.apple.com"]] applicationActivities:nil];
+  
+  [self presentViewController:sharePhotoVC animated:YES completion:nil];
+
+  
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  [textField resignFirstResponder];
+  return NO;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+  [self.scrollView setContentOffset:CGPointMake(0, textField.frame.origin.y - 200) animated:YES];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+  [self.scrollView setContentOffset:CGPointMake(0, 0)animated:YES];
+}
+
+-(IBAction)sliderValueChanged:(UISlider*)slider
+{
+  float r=[[NSString stringWithFormat:@"%.0f",_r.value] floatValue];
+  float g=[[NSString stringWithFormat:@"%.0f",_g.value]floatValue];
+  float b=[[NSString stringWithFormat:@"%.0f",_b.value]floatValue];
+  
+  UIColor *colorToSet=[UIColor colorWithRed:(r/255.0f) green:(g/255.0f) blue:(b/255.0f) alpha:1];
+  [_bgView setBackgroundColor:colorToSet];
+
+  
+}
+
+
+
+
+
+
+
+
 
 
 @end

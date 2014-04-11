@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "Person.h"
 
 @interface PersonViewController : UIViewController
 
 @property (nonatomic, strong) Person *selectedPerson;
+
+@property (strong, nonatomic) IBOutlet UISlider *r;
+@property (strong, nonatomic) IBOutlet UISlider *g;
+@property (strong, nonatomic) IBOutlet UISlider *b;
+
+@property (strong, nonatomic) IBOutlet UILabel *colorLabel;
+
+-(IBAction)sliderValueChanged:(UISlider*)slider;
+
 
 @end

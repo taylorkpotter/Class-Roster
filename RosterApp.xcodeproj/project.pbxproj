@@ -27,6 +27,10 @@
 		00B6792018F33652003B5A6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B6791E18F33652003B5A6D /* InfoPlist.strings */; };
 		00B6792218F33652003B5A6D /* RosterAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B6792118F33652003B5A6D /* RosterAppTests.m */; };
 		00B6792D18F339A4003B5A6D /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B6792C18F339A4003B5A6D /* Person.m */; };
+		D789F22518F7453200AB40B5 /* githubLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D789F22318F7453200AB40B5 /* githubLogo.png */; };
+		D789F22618F7453200AB40B5 /* twitterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D789F22418F7453200AB40B5 /* twitterLogo.png */; };
+		D789F22918F7498900AB40B5 /* ScrollTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = D789F22818F7498900AB40B5 /* ScrollTopView.m */; };
+		D7A0CEEB18F64DC30039E62B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D7A0CEEA18F64DC30039E62B /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,11 @@
 		00B6792118F33652003B5A6D /* RosterAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RosterAppTests.m; sourceTree = "<group>"; };
 		00B6792B18F339A4003B5A6D /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		00B6792C18F339A4003B5A6D /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		D789F22318F7453200AB40B5 /* githubLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = githubLogo.png; sourceTree = "<group>"; };
+		D789F22418F7453200AB40B5 /* twitterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterLogo.png; sourceTree = "<group>"; };
+		D789F22718F7498900AB40B5 /* ScrollTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTopView.h; sourceTree = "<group>"; };
+		D789F22818F7498900AB40B5 /* ScrollTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTopView.m; sourceTree = "<group>"; };
+		D7A0CEEA18F64DC30039E62B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +131,10 @@
 		009C674318F5DB970025F09A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D789F22718F7498900AB40B5 /* ScrollTopView.h */,
+				D789F22818F7498900AB40B5 /* ScrollTopView.m */,
+				D789F22318F7453200AB40B5 /* githubLogo.png */,
+				D789F22418F7453200AB40B5 /* twitterLogo.png */,
 				00B6790818F33652003B5A6D /* Main.storyboard */,
 				00AAEE8018F4AB9C001B5F34 /* PersonTableViewCell.h */,
 				00AAEE8118F4AB9C001B5F34 /* PersonTableViewCell.m */,
@@ -177,6 +190,7 @@
 		00B678FD18F33652003B5A6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D7A0CEEA18F64DC30039E62B /* logo.png */,
 				00B678FE18F33652003B5A6D /* RosterApp-Info.plist */,
 				00B678FF18F33652003B5A6D /* InfoPlist.strings */,
 				00B6790218F33652003B5A6D /* main.m */,
@@ -282,7 +296,10 @@
 				00B6790F18F33652003B5A6D /* Images.xcassets in Resources */,
 				00B6790118F33652003B5A6D /* InfoPlist.strings in Resources */,
 				00AAEDE418F45C3F001B5F34 /* People.plist in Resources */,
+				D7A0CEEB18F64DC30039E62B /* logo.png in Resources */,
+				D789F22618F7453200AB40B5 /* twitterLogo.png in Resources */,
 				00B6790A18F33652003B5A6D /* Main.storyboard in Resources */,
+				D789F22518F7453200AB40B5 /* githubLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +325,7 @@
 				009C674618F5DBCE0025F09A /* DataController.m in Sources */,
 				00B6792D18F339A4003B5A6D /* Person.m in Sources */,
 				00B6790318F33652003B5A6D /* main.m in Sources */,
+				D789F22918F7498900AB40B5 /* ScrollTopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
