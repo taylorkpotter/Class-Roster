@@ -215,17 +215,26 @@
   
 }
 
+
+
 //tap the photo and the background changes to a random color and the sliders move
 - (IBAction)randomColor:(id)sender {
   
-  CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-  CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-  CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-  self.selectedPerson.personColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+  CGFloat r = ( arc4random() % 256 / 256.0 );
+  CGFloat g = ( arc4random() % 256 / 256.0 );
+  CGFloat b = ( arc4random() % 256 / 256.0 );
+  self.selectedPerson.personColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
   [_bgView setBackgroundColor:self.selectedPerson.personColor];
-  _r.value = hue;
-  _g.value = saturation;
-  _b.value = brightness;
+  _r.value = r;
+  _g.value = g;
+  _b.value = b;
+//  UIImage *thumbImage = self.selectedPerson.avatar;
+//  [_b setThumbImage:thumbImage forState:UIControlStateNormal];
+  
+  [[UISlider appearance] setThumbImage:self.selectedPerson.avatar
+                              forState:UIControlStateNormal];
+  
+  NSLog(@" %.02f %.02f %.02f", r, g, b);
 }
 
 
